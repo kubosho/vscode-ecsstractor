@@ -5,7 +5,8 @@
     "version": "0.0.1",
     "publisher": "kubosho",
     "engines": {
-        "vscode": "^1.12.0"
+        "vscode": "^1.12.0",
+        "node" : ">=8.0.0"
     },
     "categories": [
         "Other"
