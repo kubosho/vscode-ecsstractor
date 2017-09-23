@@ -1,51 +1,45 @@
 {
-    "name": "css-tractor",
-    "displayName": "CSS tractor",
-    "description": "Extracting class names from HTML and generate CSS stylesheet",
-    "version": "0.0.1",
-    "publisher": "kubosho",
-    "engines": {
-        "vscode": "^1.12.0",
-        "node" : ">=8.0.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCommand:extension.sayHello"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.sayHello",
-                "title": "Hello World"
-            }
-        ]
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "ava"
-    },
-    "devDependencies": {
-        "ava": "^0.22.0",
-        "eslint": "^3.6.0",
-        "vscode": "^1.0.0"
-    },
-    "dependencies": {
-        "htmlparser2": "^3.9.2"
-    },
-    "ava": {
-        "files": [
-            "**/*.test.js"
-        ],
-        "source": [
-            "**/*.{js}"
-        ],
-        "concurrency": 5,
-        "failFast": false,
-        "failWithoutAssertions": false,
-        "tap": false,
-        "powerAssert": true
-    }
+  "name": "css-tractor",
+  "displayName": "CSS tractor",
+  "description": "Extracting class names from HTML and generate CSS stylesheet",
+  "version": "0.0.1",
+  "publisher": "kubosho",
+  "engines": {
+    "vscode": "^1.12.0",
+    "node": ">=8.0.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:extension.sayHello"],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.sayHello",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "format": "prettier --write \"{.,src/**}/*.js\"",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "ava"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "eslint": "^3.6.0",
+    "prettier": "^1.7.0",
+    "vscode": "^1.0.0"
+  },
+  "dependencies": {
+    "htmlparser2": "^3.9.2"
+  },
+  "ava": {
+    "files": ["**/*.test.js"],
+    "source": ["**/*.{js}"],
+    "concurrency": 5,
+    "failFast": false,
+    "failWithoutAssertions": false,
+    "tap": false,
+    "powerAssert": true
+  }
 }
