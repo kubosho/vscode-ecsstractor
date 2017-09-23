@@ -3,8 +3,8 @@ class Formatter {
     return [...new Set(selectors)]
   }
 
-  mapBrackets(selectors) {
-    return selectors.map(selector => `${selector} {}`)
+  convertSelectorsToRulesets(selectors) {
+    return selectors.map(selector => `${selector}{}`).join(' ')
   }
 }
 
