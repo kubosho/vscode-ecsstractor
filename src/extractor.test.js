@@ -23,6 +23,19 @@ test('extract class selectors', async t => {
   t.is(actual[1], '.list-item')
 })
 
+test('extract multiple class selectors', async t => {
+  const content = await readFile(
+    `${process.cwd()}/testcases/include-multiple-classes.html`,
+    'utf8',
+  )
+  const actual = extractor.extractClassSelectors(content)
+
+  t.is(actual.length, 3)
+  t.is(actual[0], '.container.container-fluid.article')
+  t.is(actual[1], '.article.content')
+  t.is(actual[2], '.article.title')
+})
+
 test('extract id selectors', async t => {
   const content = await readFile(
     `${process.cwd()}/testcases/include-ids.html`,

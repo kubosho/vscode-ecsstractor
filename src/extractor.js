@@ -26,7 +26,8 @@ class Extractor {
     const parser = createParser({
       onopentag: (name, attrs = {}) => {
         if (!(attrs && attrs.class)) return
-        selectors.push(`.${attrs.class}`)
+        const className = attrs.class.replace(/ /g, '.')
+        selectors.push(`.${className}`)
       },
     })
     parser.write(content)
