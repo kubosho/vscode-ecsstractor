@@ -22,3 +22,21 @@ test('convert selectors to rulesets', t => {
 
   t.is(actual, '.article.content{} .article.title{}')
 })
+
+test('format rulesets', t => {
+  const selectors = [
+    '.container.container-fluid{}',
+    '.article.content{}',
+    '.article.title{}',
+  ]
+  const actual = formatter.format(selectors.join(' '))
+  const expected = `.container.container-fluid {
+}
+.article.content {
+}
+.article.title {
+}
+`
+
+  t.is(actual, expected)
+})
