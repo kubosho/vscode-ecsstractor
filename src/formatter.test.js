@@ -3,7 +3,7 @@ const Formatter = require('./formatter')
 
 const formatter = new Formatter()
 
-test('remove duplicates class selectors', async t => {
+test('remove duplicates class selectors', t => {
   const selectors = [
     '.container.container-fluid',
     '.article.content',
@@ -16,7 +16,7 @@ test('remove duplicates class selectors', async t => {
   t.is(actual.length, 3)
 })
 
-test('mapping brackets', async t => {
+test('mapping brackets', t => {
   const selectors = [
     '.container.container-fluid',
     '.article.content',
