@@ -3,16 +3,21 @@ const util = require('util')
 const htmlparser = require('htmlparser2')
 
 class Extractor {
-  async extractClassNames(filePath) {
-    const classNames = []
+  async extractFileContent(path) {
     let content = ''
 
     try {
       const readFile = util.promisify(fs.readFile)
-      content = await readFile(filePath, 'utf8')
+      content = await readFile(path, 'utf8')
     } catch (error) {
       throw new Error(error)
     }
+
+    return content
+  }
+
+  extractClassNames(content) {
+    const classNames = []
 
     const parser = new htmlparser.Parser(
       {
