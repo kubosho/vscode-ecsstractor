@@ -37,6 +37,21 @@ class Extractor {
 
     return classNames
   }
+
+  extractIDs(content) {
+    const ids = []
+
+    const parser = createParser({
+      onopentag: (name, attrs = {}) => {
+        if (!(attrs && attrs.id)) return
+        ids.push(attrs.id)
+      },
+    })
+    parser.write(content)
+    parser.end()
+
+    return ids
+  }
 }
 
 module.exports = Extractor

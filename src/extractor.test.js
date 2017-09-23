@@ -22,3 +22,17 @@ test('extract class names', async t => {
   t.is(actual[0], 'list')
   t.is(actual[1], 'list-item')
 })
+
+test('extract ids', async t => {
+  const readFile = util.promisify(fs.readFile)
+  const content = await readFile(
+    `${process.cwd()}/testcases/include-ids.html`,
+    'utf8',
+  )
+  const actual = extractor.extractIDs(content)
+
+  t.is(actual.length, 3)
+  t.is(actual[0], 'global-header')
+  t.is(actual[1], 'site-title')
+  t.is(actual[2], 'global-footer')
+})
