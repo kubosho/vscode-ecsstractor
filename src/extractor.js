@@ -2,6 +2,10 @@ const fs = require('fs')
 const util = require('util')
 const htmlparser = require('htmlparser2')
 
+function createParser(callbacks) {
+  return new htmlparser.Parser(callbacks, { decodeEntities: true })
+}
+
 class Extractor {
   async extractFileContent(path) {
     let content = ''
@@ -16,41 +20,34 @@ class Extractor {
     return content
   }
 
-  extractClassNames(content) {
-    const classNames = []
-
-    const parser = new htmlparser.Parser(
-      {
-        onopentag: (name, attrs = {}) => {
-          if (!(attrs && attrs.class)) {
-            return
-          }
-
-          classNames.push(attrs.class)
-        },
-      },
-      { decodeEntities: true },
-    )
-
-    parser.write(content)
-    parser.end()
-
-    return classNames
-  }
-
-  extractIDs(content) {
-    const ids = []
+  extractClassSelectors(content) {
+    const selectors = []
 
     const parser = createParser({
       onopentag: (name, attrs = {}) => {
-        if (!(attrs && attrs.id)) return
-        ids.push(attrs.id)
+        if (!(attrs && attrs.class)) return
+        selectors.push(`.${attrs.class}`)
       },
     })
     parser.write(content)
     parser.end()
 
-    return ids
+    return selectors
+  }
+
+  extractIDSelectors(content) {
+    const selectors = []
+
+    const parser = createParser({
+      onopentag: (name, attrs = {}) => {
+        if (!(attrs && attrs.id)) return
+        selectors.push(`#${attrs.id}`)
+      },
+    })
+    parser.write(content)
+    parser.end()
+
+    return selectors
   }
 }
 

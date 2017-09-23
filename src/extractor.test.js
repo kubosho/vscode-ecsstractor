@@ -13,26 +13,26 @@ test('extract file content', async t => {
   t.true(actual.includes('<li class="list-item">Test 1</li>'))
 })
 
-test('extract class names', async t => {
+test('extract class selectors', async t => {
   const readFile = util.promisify(fs.readFile)
   const content = await readFile(`${process.cwd()}/testcases/list.html`, 'utf8')
-  const actual = extractor.extractClassNames(content)
+  const actual = extractor.extractClassSelectors(content)
 
   t.is(actual.length, 6)
-  t.is(actual[0], 'list')
-  t.is(actual[1], 'list-item')
+  t.is(actual[0], '.list')
+  t.is(actual[1], '.list-item')
 })
 
-test('extract ids', async t => {
+test('extract id selectors', async t => {
   const readFile = util.promisify(fs.readFile)
   const content = await readFile(
     `${process.cwd()}/testcases/include-ids.html`,
     'utf8',
   )
-  const actual = extractor.extractIDs(content)
+  const actual = extractor.extractIDSelectors(content)
 
   t.is(actual.length, 3)
-  t.is(actual[0], 'global-header')
-  t.is(actual[1], 'site-title')
-  t.is(actual[2], 'global-footer')
+  t.is(actual[0], '#global-header')
+  t.is(actual[1], '#site-title')
+  t.is(actual[2], '#global-footer')
 })
