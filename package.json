@@ -9,13 +9,13 @@
     "node": ">=8.0.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:extension.sayHello"],
+  "activationEvents": ["*"],
   "main": "./extension",
   "contributes": {
     "commands": [
       {
-        "command": "extension.sayHello",
-        "title": "Hello World"
+        "command": "extension.run",
+        "title": "Run: CSS tractor"
       }
     ]
   },
