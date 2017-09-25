@@ -3,6 +3,7 @@
   "displayName": "CSS tractor",
   "description": "Extracting class names from HTML and generate CSS stylesheet",
   "version": "0.0.1",
+  "license": "MIT",
   "publisher": "kubosho",
   "engines": {
     "vscode": "^1.12.0",
