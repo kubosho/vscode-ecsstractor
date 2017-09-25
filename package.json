@@ -1,8 +1,8 @@
 {
   "name": "css-tractor",
   "displayName": "CSS tractor",
-  "description": "Extracting class names from HTML and generate CSS stylesheet",
-  "version": "0.0.1",
+  "description": "Extracting selectors from HTML and generate CSS stylesheet",
+  "version": "1.0.0",
   "license": "MIT",
   "publisher": "kubosho",
   "engines": {
