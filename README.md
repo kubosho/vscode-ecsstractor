@@ -47,6 +47,6 @@ Run CSS tractor:
 In VS Code window:
 
 1. Open the extensions
-    - Press `Cmd + Shift + X` on macOS or `Ctrl + Shift + X` on Windows / Linux
+    - Press `Cmd + Shift + P` on macOS or `Ctrl + Shift + P` on Windows / Linux
     - Go to `View` → `Extensions`
 1. Typing the `css-tractor` in input form and select `Install` on `CSS tractor`
