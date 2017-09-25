@@ -7,19 +7,6 @@ function createParser(callbacks) {
 }
 
 class Extractor {
-  async extractFileContent(path) {
-    let content = ''
-
-    try {
-      const readFile = util.promisify(fs.readFile)
-      content = await readFile(path, 'utf8')
-    } catch (error) {
-      throw new Error(error)
-    }
-
-    return content
-  }
-
   extractClassSelectors(content) {
     const selectors = []
 

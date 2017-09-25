@@ -6,14 +6,6 @@ const Extractor = require('./extractor')
 const extractor = new Extractor()
 const readFile = util.promisify(fs.readFile)
 
-test('extract file content', async t => {
-  const actual = await extractor.extractFileContent(
-    `${process.cwd()}/testcases/list.html`,
-  )
-
-  t.true(actual.includes('<li class="list-item">Test 1</li>'))
-})
-
 test('extract class selectors', async t => {
   const content = await readFile(`${process.cwd()}/testcases/list.html`, 'utf8')
   const actual = extractor.extractClassSelectors(content)
