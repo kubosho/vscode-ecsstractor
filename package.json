@@ -4,6 +4,10 @@
   "description": "Extracting selectors from HTML and generate CSS stylesheet",
   "version": "1.0.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kubosho/vscode-css-tractor.git"
+  },
   "publisher": "kubosho",
   "engines": {
     "vscode": "^1.12.0",
