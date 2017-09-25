@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.3] - 2017-09-26
+
+### Fixed
+
+- Fixed incorrect shortcut of Command Palette
+
 ## [1.0.2] - 2017-09-26
 
 ### Fixed

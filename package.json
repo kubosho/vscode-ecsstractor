@@ -2,7 +2,7 @@
   "name": "css-tractor",
   "displayName": "CSS tractor",
   "description": "Extracting selectors from HTML and generate CSS stylesheet",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "repository": {
     "type": "git",
