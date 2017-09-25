@@ -11,8 +11,8 @@ Extracting selectors from HTML and generate CSS file.
 Open any HTML file and do the following:
 
 1. Open the command palette
-  - Press `Cmd + Shift + P` on macOS or `Ctrl + Shift + P` on Windows / Linux
-  - Go to `View` → `Command Palette`
+    - Press `Cmd + Shift + P` on macOS or `Ctrl + Shift + P` on Windows / Linux
+    - Go to `View` → `Command Palette`
 1. Typing the `Run: CSS tractor` and select
 
 Then will see new tab with CSS selectors extracted from HTML file.
@@ -47,12 +47,6 @@ Run CSS tractor:
 In VS Code window:
 
 1. Open the extensions
-  - Press `Cmd + Shift + X` on macOS or `Ctrl + Shift + X` on Windows / Linux
-  - Go to `View` → `Extensions`
+    - Press `Cmd + Shift + X` on macOS or `Ctrl + Shift + X` on Windows / Linux
+    - Go to `View` → `Extensions`
 1. Typing the `css-tractor` in input form and select `Install` on `CSS tractor`
-
-In command line:
-
-```
-ext install css-tractor
-```
