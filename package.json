@@ -1,12 +1,12 @@
 {
-  "name": "css-tractor",
-  "displayName": "CSS tractor",
+  "name": "ecsstractor",
+  "displayName": "eCSStractor",
   "description": "Extracting selectors from HTML and generate CSS stylesheet",
   "version": "1.0.3",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kubosho/vscode-css-tractor.git"
+    "url": "https://github.com/kubosho/vscode-ecsstractor.git"
   },
   "publisher": "kubosho",
   "engines": {
@@ -20,7 +20,7 @@
     "commands": [
       {
         "command": "extension.run",
-        "title": "Run: CSS tractor"
+        "title": "Run: eCSStractor"
       }
     ]
   },
