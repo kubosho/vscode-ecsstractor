@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.4] - 2017-09-26
+
+### Fixed
+
+- Rename extension (css-tractor to eCSStractor)
+
 ## [1.0.3] - 2017-09-26
 
 ### Fixed
