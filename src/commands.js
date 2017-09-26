@@ -13,7 +13,7 @@ async function runCSSTractor() {
   const content = document.getText()
 
   if (!supportedFormats.includes(document.languageId)) {
-    vscode.window.showErrorMessage('CSS tractor: not supported format.')
+    vscode.window.showErrorMessage('eCSStractor: not supported format.')
   }
 
   const selectors = [

@@ -1,6 +1,6 @@
-# vscode-css-tractor
+# eCSStractor for VS Code
 
-![VS Code CSS tractor demo](src/assets/demo.gif?raw=true)
+![eCSStractor demo](src/assets/demo.gif?raw=true)
 
 Extracting selectors from HTML and generate CSS file.
 
@@ -13,7 +13,7 @@ Open any HTML file and do the following:
 1. Open the command palette
     - Press `Cmd + Shift + P` on macOS or `Ctrl + Shift + P` on Windows / Linux
     - Go to `View` → `Command Palette`
-1. Typing the `Run: CSS tractor` and select
+1. Typing the `Run: eCSStractor` and select
 
 Then will see new tab with CSS selectors extracted from HTML file.
 
@@ -31,7 +31,7 @@ Source:
 </ul>
 ```
 
-Run CSS tractor:
+Run eCSStractor:
 
 ```css
 #test-list {
@@ -49,4 +49,4 @@ In VS Code window:
 1. Open the extensions
     - Press `Cmd + Shift + P` on macOS or `Ctrl + Shift + P` on Windows / Linux
     - Go to `View` → `Extensions`
-1. Typing the `css-tractor` in input form and select `Install` on `CSS tractor`
+1. Typing the `ecsstractor` in input form and select `Install` on `eCSStractor`
