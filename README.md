@@ -1,5 +1,7 @@
 # eCSStractor for VS Code
 
+[![CircleCI](https://circleci.com/gh/kubosho/vscode-ecsstractor.svg?style=svg)](https://circleci.com/gh/kubosho/vscode-ecsstractor)
+
 ![eCSStractor demo](src/assets/demo.gif?raw=true)
 
 Extracting selectors from HTML and generate CSS file.
