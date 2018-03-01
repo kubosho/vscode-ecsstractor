@@ -29,9 +29,9 @@
     ]
   },
   "scripts": {
-    "format": "prettier --write \"{.,src/**}/*.js\"",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "ava"
+    "fmt": "saku fmt",
+    "postinstall": "saku postinstall",
+    "test": "saku test"
   },
   "devDependencies": {
     "ava": "^0.22.0",
