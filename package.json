@@ -13,8 +13,12 @@
     "vscode": "^1.12.0",
     "node": ">=8.0.0"
   },
-  "categories": ["Other"],
-  "activationEvents": ["*"],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./extension",
   "contributes": {
     "commands": [
@@ -32,6 +36,7 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "eslint": "^3.6.0",
+    "saku": "^0.11.0",
     "vscode": "^1.0.0"
   },
   "dependencies": {
@@ -39,8 +44,12 @@
     "prettier": "^1.7.0"
   },
   "ava": {
-    "files": ["**/*.test.js"],
-    "source": ["**/*.{js}"],
+    "files": [
+      "**/*.test.js"
+    ],
+    "source": [
+      "**/*.{js}"
+    ],
     "concurrency": 5,
     "failFast": false,
     "failWithoutAssertions": false,
