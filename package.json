@@ -29,14 +29,13 @@
     ]
   },
   "scripts": {
-    "fmt": "saku fmt",
-    "postinstall": "saku postinstall",
-    "test": "saku test"
+    "fmt": "prettier --write ./src/**/*.js",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "ava"
   },
   "devDependencies": {
     "ava": "^0.22.0",
     "eslint": "^3.6.0",
-    "saku": "^0.11.0",
     "vscode": "^1.0.0"
   },
   "dependencies": {
