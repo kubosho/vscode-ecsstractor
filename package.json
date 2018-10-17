@@ -46,7 +46,7 @@
     "files": [
       "**/*.test.js"
     ],
-    "source": [
+    "sources": [
       "**/*.{js}"
     ],
     "concurrency": 5,
