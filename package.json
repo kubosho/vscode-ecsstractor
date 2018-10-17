@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "htmlparser2": "^3.9.2",
-    "prettier": "^1.7.0"
+    "prettier": "^1.14.3"
   },
   "ava": {
     "files": [
