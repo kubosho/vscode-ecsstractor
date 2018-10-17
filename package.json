@@ -34,19 +34,19 @@
     "test": "ava"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "eslint": "^3.6.0",
-    "vscode": "^1.0.0"
+    "ava": "^1.0.0-rc.1",
+    "eslint": "^5.7.0",
+    "vscode": "^1.1.21"
   },
   "dependencies": {
     "htmlparser2": "^3.9.2",
-    "prettier": "^1.7.0"
+    "prettier": "^1.14.3"
   },
   "ava": {
     "files": [
       "**/*.test.js"
     ],
-    "source": [
+    "sources": [
       "**/*.{js}"
     ],
     "concurrency": 5,
