@@ -1,5 +1,10 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "assignees": [
+    "kubosho"
+  ],
+  "schedule": ["every weekend"],
+  "separateMajorMinor": false
 }
