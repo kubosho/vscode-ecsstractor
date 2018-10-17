@@ -34,9 +34,9 @@
     "test": "ava"
   },
   "devDependencies": {
-    "ava": "^1.0.0-rc.1",
-    "eslint": "^5.7.0",
-    "vscode": "^1.1.21"
+    "ava": "1.0.0-rc.1",
+    "eslint": "5.7.0",
+    "vscode": "1.1.21"
   },
   "dependencies": {
     "htmlparser2": "^3.9.2",
