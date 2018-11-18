@@ -9,7 +9,7 @@ export class Extractor {
     const selectors = []
 
     const parser = createParser({
-      onopentag: (name, attrs = {}) => {
+      onopentag: (name, attrs) => {
         if (!(attrs && attrs.class)) return
         const className = attrs.class.replace(/ /g, '.')
         selectors.push(`.${className}`)
@@ -25,7 +25,7 @@ export class Extractor {
     const selectors = []
 
     const parser = createParser({
-      onopentag: (name, attrs = {}) => {
+      onopentag: (name, attrs) => {
         if (!(attrs && attrs.id)) return
         selectors.push(`#${attrs.id}`)
       },
