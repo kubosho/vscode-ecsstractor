@@ -1,12 +1,10 @@
-const fs = require('fs')
-const util = require('util')
-const htmlparser = require('htmlparser2')
+import htmlparser from 'htmlparser2'
 
 function createParser(callbacks) {
   return new htmlparser.Parser(callbacks, { decodeEntities: true })
 }
 
-class Extractor {
+export class Extractor {
   extractClassSelectors(content) {
     const selectors = []
 
@@ -38,5 +36,3 @@ class Extractor {
     return selectors
   }
 }
-
-module.exports = Extractor

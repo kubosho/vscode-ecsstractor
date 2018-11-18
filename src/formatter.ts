@@ -1,6 +1,6 @@
-const prettier = require('prettier')
+import prettier from 'prettier'
 
-class Formatter {
+export class Formatter {
   removeDuplicatesSelector(selectors) {
     return [...new Set(selectors)]
   }
@@ -13,5 +13,3 @@ class Formatter {
     return prettier.format(source, { parser: 'postcss' })
   }
 }
-
-module.exports = Formatter
