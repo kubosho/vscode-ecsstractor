@@ -29,7 +29,7 @@
     ]
   },
   "scripts": {
-    "fmt": "prettier --write ./src/**/*.js",
+    "fmt": "prettier --write ./src/**/*.{js,ts}",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "ava"
   },
