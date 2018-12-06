@@ -1,7 +1,7 @@
-const test = require('ava')
-const fs = require('fs')
-const util = require('util')
-const Extractor = require('./extractor')
+import test from 'ava'
+import fs from 'fs'
+import util from 'util'
+import { Extractor } from '../extractor'
 
 const extractor = new Extractor()
 const readFile = util.promisify(fs.readFile)
