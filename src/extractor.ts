@@ -1,7 +1,7 @@
-import htmlparser from 'htmlparser2'
+import { Parser as HtmlParser } from 'htmlparser2'
 
 function createParser(callbacks) {
-  return new htmlparser.Parser(callbacks, { decodeEntities: true })
+  return new HtmlParser(callbacks, { decodeEntities: true })
 }
 
 export class Extractor {

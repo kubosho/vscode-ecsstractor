@@ -1,4 +1,4 @@
-import prettier from 'prettier'
+import { format as sourceFormat } from 'prettier'
 
 export class Formatter {
   removeDuplicatesSelector(selectors) {
@@ -10,6 +10,6 @@ export class Formatter {
   }
 
   format(source) {
-    return prettier.format(source, { parser: 'postcss' })
+    return sourceFormat(source, { parser: 'postcss' })
   }
 }

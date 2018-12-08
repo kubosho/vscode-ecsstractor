@@ -1,10 +1,10 @@
 import test from 'ava'
-import fs from 'fs'
-import util from 'util'
+import { readFile as lagacyReadFile } from 'fs'
+import { promisify } from 'util'
 import { Extractor } from '../extractor'
 
 const extractor = new Extractor()
-const readFile = util.promisify(fs.readFile)
+const readFile = promisify(lagacyReadFile)
 
 test('extract class selectors', async t => {
   const content = await readFile(`${process.cwd()}/testcases/list.html`, 'utf8')
