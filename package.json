@@ -48,8 +48,15 @@
     "prettier": "^1.14.3"
   },
   "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
     "files": [
-      "**/*.test.js"
+      "./src/__tests__/test_*.ts"
     ],
     "sources": [
       "**/*.{js}"
