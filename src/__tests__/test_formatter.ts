@@ -1,5 +1,5 @@
-const test = require('ava')
-const Formatter = require('./formatter')
+import test from 'ava'
+import { Formatter } from '../formatter'
 
 const formatter = new Formatter()
 

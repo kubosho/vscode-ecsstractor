@@ -1,17 +1,15 @@
-const fs = require('fs')
-const util = require('util')
-const htmlparser = require('htmlparser2')
+import { Parser as HtmlParser } from 'htmlparser2'
 
 function createParser(callbacks) {
-  return new htmlparser.Parser(callbacks, { decodeEntities: true })
+  return new HtmlParser(callbacks, { decodeEntities: true })
 }
 
-class Extractor {
+export class Extractor {
   extractClassSelectors(content) {
     const selectors = []
 
     const parser = createParser({
-      onopentag: (name, attrs = {}) => {
+      onopentag: (name, attrs) => {
         if (!(attrs && attrs.class)) return
         const className = attrs.class.replace(/ /g, '.')
         selectors.push(`.${className}`)
@@ -27,7 +25,7 @@ class Extractor {
     const selectors = []
 
     const parser = createParser({
-      onopentag: (name, attrs = {}) => {
+      onopentag: (name, attrs) => {
         if (!(attrs && attrs.id)) return
         selectors.push(`#${attrs.id}`)
       },
@@ -38,5 +36,3 @@ class Extractor {
     return selectors
   }
 }
-
-module.exports = Extractor

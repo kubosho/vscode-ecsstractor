@@ -29,13 +29,18 @@
     ]
   },
   "scripts": {
-    "fmt": "prettier --write ./src/**/*.js",
+    "fmt": "prettier --write ./src/**/*.{js,ts}",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "ava"
   },
   "devDependencies": {
+    "@types/htmlparser2": "^3.7.31",
+    "@types/node": "^10.12.12",
+    "@types/prettier": "^1.15.2",
     "ava": "1.0.0-rc.2",
     "eslint": "5.10.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2",
     "vscode": "1.1.26"
   },
   "dependencies": {
@@ -43,8 +48,15 @@
     "prettier": "^1.14.3"
   },
   "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
     "files": [
-      "**/*.test.js"
+      "./src/__tests__/test_*.ts"
     ],
     "sources": [
       "**/*.{js}"

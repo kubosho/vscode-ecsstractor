@@ -1,18 +1,19 @@
-const vscode = require('vscode')
-const Extractor = require('./extractor')
-const Formatter = require('./formatter')
+import vscode from 'vscode'
+import { Extractor } from './extractor'
+import { Formatter } from './formatter'
 
 const extractor = new Extractor()
 const formatter = new Formatter()
 
 const supportedFormats = ['html']
 
-async function runCSSTractor() {
+export async function runCSSExtractor() {
   const editor = vscode.window.activeTextEditor
   const document = editor.document
   const content = document.getText()
 
-  if (!supportedFormats.includes(document.languageId)) {
+  const isSupportedLanguage = supportedFormats.includes(document.languageId)
+  if (!isSupportedLanguage) {
     vscode.window.showErrorMessage('eCSStractor: not supported format.')
   }
 
@@ -31,8 +32,4 @@ async function runCSSTractor() {
       language: 'css',
     }),
   )
-}
-
-module.exports = {
-  run: () => vscode.commands.registerCommand(`extension.run`, runCSSTractor),
 }
