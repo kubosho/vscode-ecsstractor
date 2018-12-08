@@ -34,13 +34,13 @@
     "test": "ava"
   },
   "devDependencies": {
-    "@types/htmlparser2": "^3.7.31",
-    "@types/node": "^10.12.12",
-    "@types/prettier": "^1.15.2",
+    "@types/htmlparser2": "3.7.31",
+    "@types/node": "10.12.12",
+    "@types/prettier": "1.15.2",
     "ava": "1.0.0-rc.2",
     "eslint": "5.10.0",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.2.2",
+    "ts-node": "7.0.1",
+    "typescript": "3.2.2",
     "vscode": "1.1.26"
   },
   "dependencies": {
