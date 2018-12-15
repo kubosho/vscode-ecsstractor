@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@types/htmlparser2": "3.7.31",
-    "@types/node": "10.12.12",
+    "@types/node": "10.12.15",
     "@types/prettier": "1.15.2",
     "ava": "1.0.0-rc.2",
     "eslint": "5.10.0",
