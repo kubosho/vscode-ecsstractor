@@ -1,4 +1,7 @@
-import vscode from 'vscode'
+import {
+  window as vscodeWindow,
+  workspace as vscodeWorkspace,
+} from 'vscode'
 import { Extractor } from './extractor'
 import { Formatter } from './formatter'
 
@@ -8,13 +11,13 @@ const formatter = new Formatter()
 const supportedFormats = ['html']
 
 export async function runCSSExtractor() {
-  const editor = vscode.window.activeTextEditor
+  const editor = vscodeWindow.activeTextEditor
   const document = editor.document
   const content = document.getText()
 
   const isSupportedLanguage = supportedFormats.includes(document.languageId)
   if (!isSupportedLanguage) {
-    vscode.window.showErrorMessage('eCSStractor: not supported format.')
+    vscodeWindow.showErrorMessage('eCSStractor: not supported format.')
   }
 
   const selectors = [
@@ -26,8 +29,8 @@ export async function runCSSExtractor() {
     formatter.removeDuplicatesSelector(selectors),
   )
 
-  vscode.window.showTextDocument(
-    await vscode.workspace.openTextDocument({
+  vscodeWindow.showTextDocument(
+    await vscodeWorkspace.openTextDocument({
       content: formatter.format(source),
       language: 'css',
     }),
