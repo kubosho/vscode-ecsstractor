@@ -37,7 +37,7 @@
     "@types/htmlparser2": "3.7.31",
     "@types/node": "10.12.18",
     "@types/prettier": "1.16.0",
-    "ava": "1.0.1",
+    "ava": "2.0.0",
     "eslint": "5.13.0",
     "ts-node": "7.0.1",
     "typescript": "3.3.3",
