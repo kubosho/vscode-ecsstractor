@@ -39,7 +39,7 @@
     "@types/prettier": "1.16.4",
     "ava": "2.0.0",
     "eslint": "5.16.0",
-    "ts-node": "7.0.1",
+    "ts-node": "8.3.0",
     "typescript": "3.5.1",
     "vscode": "1.1.26"
   },
