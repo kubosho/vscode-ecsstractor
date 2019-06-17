@@ -34,7 +34,7 @@
     "test": "ava"
   },
   "devDependencies": {
-    "@types/htmlparser2": "3.7.31",
+    "@types/htmlparser2": "3.10.0",
     "@types/node": "10.12.18",
     "@types/prettier": "1.16.4",
     "ava": "2.0.0",
