@@ -41,7 +41,7 @@
     "eslint": "5.16.0",
     "ts-node": "8.3.0",
     "typescript": "3.5.1",
-    "vscode": "1.1.34"
+    "vscode": "1.1.35"
   },
   "dependencies": {
     "htmlparser2": "^3.9.2",
