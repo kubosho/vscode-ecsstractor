@@ -44,7 +44,7 @@
     "vscode": "1.1.35"
   },
   "dependencies": {
-    "htmlparser2": "^3.9.2",
+    "htmlparser2": "^4.0.0",
     "prettier": "^1.14.3"
   },
   "ava": {
