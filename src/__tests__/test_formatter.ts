@@ -1,42 +1,42 @@
-import test from 'ava'
-import { Formatter } from '../formatter'
+import test from 'ava';
+import { Formatter } from '../formatter';
 
-const formatter = new Formatter()
+const formatter = new Formatter();
 
-test('remove duplicates class selectors', t => {
+test('remove duplicates class selectors', (t) => {
   const selectors = [
     '.container.container-fluid',
     '.article.content',
     '.article.title',
     '.article.content',
     '.article.title',
-  ]
-  const actual = formatter.removeDuplicatesSelector(selectors)
+  ];
+  const actual = formatter.removeDuplicatesSelector(selectors);
 
-  t.is(actual.length, 3)
-})
+  t.is(actual.length, 3);
+});
 
-test('convert selectors to rulesets', t => {
-  const selectors = ['.article.content', '.article.title']
-  const actual = formatter.convertSelectorsToRulesets(selectors)
+test('convert selectors to rulesets', (t) => {
+  const selectors = ['.article.content', '.article.title'];
+  const actual = formatter.convertSelectorsToRulesets(selectors);
 
-  t.is(actual, '.article.content{} .article.title{}')
-})
+  t.is(actual, '.article.content{} .article.title{}');
+});
 
-test('format rulesets', t => {
+test('format rulesets', (t) => {
   const selectors = [
     '.container.container-fluid{}',
     '.article.content{}',
     '.article.title{}',
-  ]
-  const actual = formatter.format(selectors.join(' '))
+  ];
+  const actual = formatter.format(selectors.join(' '));
   const expected = `.container.container-fluid {
 }
 .article.content {
 }
 .article.title {
 }
-`
+`;
 
-  t.is(actual, expected)
-})
+  t.is(actual, expected);
+});
