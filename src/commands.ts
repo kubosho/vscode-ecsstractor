@@ -1,3 +1,4 @@
+import { isUndefined } from 'option-t/lib/Undefinable/Undefinable';
 import { window as vscodeWindow, workspace as vscodeWorkspace } from 'vscode';
 import { Extractor } from './extractor';
 import { Formatter } from './formatter';
@@ -7,8 +8,12 @@ const formatter = new Formatter();
 
 const supportedFormats = ['html'];
 
-export async function runCSSExtractor() {
+export async function runCSSExtractor(): Promise<void> {
   const editor = vscodeWindow.activeTextEditor;
+  if (isUndefined(editor)) {
+    return;
+  }
+
   const document = editor.document;
   const content = document.getText();
 
