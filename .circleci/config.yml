@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /work
     docker:
-      - image: node:10.12.0
+      - image: node:14.4.0
     steps:
       - checkout
       - run:
