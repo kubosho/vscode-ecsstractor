@@ -10,6 +10,6 @@ export class Formatter {
   }
 
   format(source: string): string {
-    return sourceFormat(source, { parser: 'postcss' });
+    return sourceFormat(source, { parser: 'css' });
   }
 }
