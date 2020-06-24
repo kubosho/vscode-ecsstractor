@@ -34,7 +34,8 @@
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
-    "test": "node ./out/test/runTest.js",
+    "test": "ava",
+    "test_with_vscode": "node ./out/__tests__/runTest.js",
     "format": "prettier --write ./src/**/*.{js,ts}"
   },
   "devDependencies": {
