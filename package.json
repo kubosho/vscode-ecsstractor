@@ -43,7 +43,7 @@
     "@types/htmlparser2": "3.10.1",
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.11.0",
-    "@types/prettier": "1.18.4",
+    "@types/prettier": "2.0.1",
     "@types/vscode": "^1.46.0",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
