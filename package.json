@@ -11,7 +11,7 @@
   "publisher": "kubosho",
   "engines": {
     "vscode": "^1.46.0",
-    "node": ">=10.0.0"
+    "node": ">=14.4.0"
   },
   "categories": [
     "Other"
