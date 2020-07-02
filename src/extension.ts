@@ -1,8 +1,13 @@
-import { ExtensionContext } from 'vscode';
+import { ExtensionContext, commands } from 'vscode';
 import { runCSSExtractor } from './commands';
 
 export async function activate(context: ExtensionContext) {
-  context.subscriptions.push(await runCSSExtractor());
-}
+  const disposable = commands.registerCommand(
+    'extension.ecsstractor.run',
+    async () => {
+      await runCSSExtractor();
+    },
+  );
 
-export function deactivate() {}
+  context.subscriptions.push(disposable);
+}
