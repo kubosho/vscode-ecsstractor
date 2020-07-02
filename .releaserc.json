@@ -1,5 +1,17 @@
 {
   "branches": ["master", "next"],
+  "verifyConditions": ["semantic-release-vsce", "@semantic-release/github"],
+  "prepare": {
+    "path": "semantic-release-vsce",
+    "packageVsix": "ecsstractor.vsix"
+  },
+  "publish": [
+    "semantic-release-vsce",
+    {
+      "path": "@semantic-release/github",
+      "assets": "ecsstractor.vsix"
+    }
+  ],
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
