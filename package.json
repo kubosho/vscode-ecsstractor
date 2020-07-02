@@ -17,13 +17,13 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onCommand:extension.ecsstractor.run"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.run",
+        "command": "extension.ecsstractor.run",
         "title": "Run: eCSStractor"
       }
     ]
