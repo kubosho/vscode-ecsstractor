@@ -1,4 +1,10 @@
-# [2.1.0](https://github.com/kubosho/vscode-ecsstractor/compare/v2.0.0...v2.1.0) (2020-07-01)
+# [2.1.1](https://github.com/kubosho/vscode-ecsstractor/compare/v2.1.0...v2.1.1) (2020-07-02)
+
+### Bug Fixes
+
+-   define commands for execute ecsstractor in each file ([c27774a](https://github.com/kubosho/vscode-ecsstractor/commit/c27774a158386c60a776501c491388d9b3b58c73))
+
+## [2.1.0](https://github.com/kubosho/vscode-ecsstractor/compare/v2.0.0...v2.1.0) (2020-07-01)
 
 ### Bug Fixes
 
