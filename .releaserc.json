@@ -38,6 +38,7 @@
       {
         "assets": ["docs/CHANGELOG.md"]
       }
-    ]
+    ],
+    "@semantic-release/github"
   ]
 }
