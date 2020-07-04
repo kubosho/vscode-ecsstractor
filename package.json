@@ -58,7 +58,7 @@
     "glob": "7.1.6",
     "mocha": "8.0.1",
     "typescript": "3.9.6",
-    "semantic-release": "17.1.0",
+    "semantic-release": "17.1.1",
     "semantic-release-vsce": "3.0.1",
     "vscode": "1.1.37",
     "vscode-test": "1.4.0"
