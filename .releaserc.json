@@ -1,6 +1,10 @@
 {
   "branches": ["master", "next"],
-  "verifyConditions": ["semantic-release-vsce", "@semantic-release/github"],
+  "verifyConditions": [
+    "semantic-release-vsce",
+    "@semantic-release/github",
+    "@semantic-release/git"
+  ],
   "prepare": {
     "path": "semantic-release-vsce",
     "packageVsix": "ecsstractor.vsix"
