@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "htmlparser2": "^4.0.0",
-    "option-t": "^22.4.1",
+    "option-t": "^23.0.0",
     "prettier": "^2.0.5"
   }
 }
