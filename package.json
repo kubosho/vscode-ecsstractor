@@ -50,7 +50,7 @@
     "@types/mocha": "8.2.0",
     "@types/node": "13.13.12",
     "@types/prettier": "2.1.6",
-    "@types/vscode": "1.46.0",
+    "@types/vscode": "1.52.0",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "ava": "3.9.0",
