@@ -64,7 +64,7 @@
     "vscode-test": "1.4.0"
   },
   "dependencies": {
-    "htmlparser2": "^4.0.0",
+    "htmlparser2": "^6.0.0",
     "option-t": "^22.4.1",
     "prettier": "^2.0.5"
   }
