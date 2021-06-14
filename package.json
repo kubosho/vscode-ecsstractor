@@ -48,7 +48,7 @@
     "@semantic-release/release-notes-generator": "9.0.1",
     "@types/htmlparser2": "3.10.2",
     "@types/mocha": "8.2.0",
-    "@types/node": "13.13.12",
+    "@types/node": "14.17.3",
     "@types/prettier": "2.1.6",
     "@types/vscode": "1.52.0",
     "@typescript-eslint/eslint-plugin": "2.34.0",
