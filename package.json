@@ -59,7 +59,7 @@
     "mocha": "8.2.1",
     "typescript": "4.3.2",
     "semantic-release": "17.2.3",
-    "semantic-release-vsce": "3.0.1",
+    "semantic-release-vsce": "3.4.1",
     "vscode": "1.1.37",
     "vscode-test": "1.5.2"
   },
