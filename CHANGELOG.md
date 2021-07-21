@@ -1,3 +1,10 @@
+## [2.1.4](https://github.com/kubosho/vscode-ecsstractor/compare/v2.1.3...v2.1.4) (2021-07-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency option-t to v28 ([852f3c4](https://github.com/kubosho/vscode-ecsstractor/commit/852f3c49b56868b57e7669e522d8f1985ead787a))
+
 # [2.1.1](https://github.com/kubosho/vscode-ecsstractor/compare/v2.1.0...v2.1.1) (2020-07-02)
 
 ### Bug Fixes
