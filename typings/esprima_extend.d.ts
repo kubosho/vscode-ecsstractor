@@ -1,11 +1,5 @@
 import { SimpleLiteral } from 'estree';
 
-type JSXAttribute = {
-  type: 'JSXAttribute';
-  name: JSXIdentifier;
-  value: SimpleLiteral;
-};
-
 type JSXIdentifier = { name: string; type: 'JSXIdentifier' };
 
 type JSXOpeningElement = {
@@ -20,7 +14,13 @@ type JSXClosingElement = {
   name: JSXIdentifier;
 };
 
-export declare type JSXElement = {
+export type JSXAttribute = {
+  type: 'JSXAttribute';
+  name: JSXIdentifier;
+  value: SimpleLiteral;
+};
+
+export type JSXElement = {
   type: 'JSXElement';
   openingElement: JSXOpeningElement;
   children: JSXElement[];
