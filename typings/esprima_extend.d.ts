@@ -26,3 +26,9 @@ export type JSXElement = {
   children: JSXElement[];
   closingElement: JSXClosingElement | null;
 };
+
+export type JSXText = {
+  type: 'JSXText';
+  value: string;
+  raw: string;
+};
