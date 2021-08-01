@@ -1,3 +1,14 @@
+# [2.2.0](https://github.com/kubosho/vscode-ecsstractor/compare/v2.1.4...v2.2.0) (2021-08-01)
+
+
+### Features
+
+* **commands:** add support JSX ([82d841d](https://github.com/kubosho/vscode-ecsstractor/commit/82d841dc3d9d0280ada6272dc6c01aed3dacd8eb))
+* **extractor:** add support JSX ([b017da0](https://github.com/kubosho/vscode-ecsstractor/commit/b017da0ac745e322d338dcaabc2d05bc38b94a57))
+* **Extractor:** add support for passing arguments when initializing Extractor ([b950371](https://github.com/kubosho/vscode-ecsstractor/commit/b9503714eb650b39c2df2c7bb1bd0481f3e98fcc))
+* **supportFileType:** add support file type enum ([32ee818](https://github.com/kubosho/vscode-ecsstractor/commit/32ee818e3e0e45eb089b8f75dd1778d76ec1162d))
+* **utils:** implement utility functions using estree ([a8500ba](https://github.com/kubosho/vscode-ecsstractor/commit/a8500bab2430cace92b36d72734d0c40583d6b7e))
+
 ## [2.1.4](https://github.com/kubosho/vscode-ecsstractor/compare/v2.1.3...v2.1.4) (2021-08-01)
 
 
