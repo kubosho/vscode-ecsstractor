@@ -1,3 +1,11 @@
+## [2.1.4](https://github.com/kubosho/vscode-ecsstractor/compare/v2.1.3...v2.1.4) (2021-08-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency htmlparser2 to v6 ([07067e0](https://github.com/kubosho/vscode-ecsstractor/commit/07067e0f50698ef3301da521330aab676d04a39f))
+* **deps:** update dependency option-t to v28 ([852f3c4](https://github.com/kubosho/vscode-ecsstractor/commit/852f3c49b56868b57e7669e522d8f1985ead787a))
+
 ## [2.1.4](https://github.com/kubosho/vscode-ecsstractor/compare/v2.1.3...v2.1.4) (2021-07-21)
 
 
