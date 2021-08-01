@@ -10,7 +10,7 @@
   },
   "publisher": "kubosho",
   "engines": {
-    "vscode": "^1.58.0",
+    "vscode": "^1.58.1",
     "node": "^16.5.0"
   },
   "categories": [
@@ -65,7 +65,6 @@
   "dependencies": {
     "htmlparser2": "^6.1.0",
     "option-t": "^28.0.0",
-    "prettier": "^2.0.5",
-    "vscode": "1.1.37"
+    "prettier": "^2.0.5"
   }
 }
