@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/kubosho/vscode-ecsstractor/compare/v2.2.0...v2.2.1) (2021-08-02)
+
+
+### Bug Fixes
+
+* **supportFileType:** fix JavaScript React not supported ([95c4807](https://github.com/kubosho/vscode-ecsstractor/commit/95c4807ab2ed1b89376a58bec3fdd5b3d84f4712))
+
 # [2.2.0](https://github.com/kubosho/vscode-ecsstractor/compare/v2.1.4...v2.2.0) (2021-08-01)
 
 
