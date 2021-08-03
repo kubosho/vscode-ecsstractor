@@ -1,8 +1,7 @@
-import { isNull } from 'option-t/lib/Nullable/Nullable';
 import { isUndefined } from 'option-t/lib/Undefinable/Undefinable';
 import { window as vscodeWindow, workspace as vscodeWorkspace } from 'vscode';
 import { createExtractor } from './extractor';
-import { Formatter } from './formatter';
+import { format } from './formatter';
 import { SupportFileType } from './supportFileType';
 
 const supportedFormats = Object.entries(SupportFileType).map(
@@ -11,11 +10,9 @@ const supportedFormats = Object.entries(SupportFileType).map(
 
 export async function runCSSExtractor(): Promise<void> {
   const editor = vscodeWindow.activeTextEditor;
-
   const extractor = createExtractor();
-  const formatter = new Formatter();
 
-  if (isUndefined(editor) || isNull(extractor) || isNull(formatter)) {
+  if (isUndefined(editor)) {
     return;
   }
 
@@ -37,13 +34,9 @@ export async function runCSSExtractor(): Promise<void> {
     ...extractor.extractClassName(content),
   ];
 
-  const source = formatter.convertSelectorsToRulesets(
-    formatter.removeDuplicatesSelector(selectors),
-  );
-
   vscodeWindow.showTextDocument(
     await vscodeWorkspace.openTextDocument({
-      content: formatter.format(source),
+      content: format(selectors),
       language: 'css',
     }),
   );
