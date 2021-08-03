@@ -1,5 +1,5 @@
-import { isUndefined } from 'option-t/lib/Undefinable/Undefinable';
 import { window as vscodeWindow, workspace as vscodeWorkspace } from 'vscode';
+import { getActiveDocument } from './document';
 import { createExtractor } from './extractor';
 import { format } from './formatter';
 import { SupportFileType } from './supportFileType';
@@ -9,17 +9,12 @@ const supportedFormats = Object.entries(SupportFileType).map(
 );
 
 export async function runCSSExtractor(): Promise<void> {
-  const editor = vscodeWindow.activeTextEditor;
-  const extractor = createExtractor();
-
-  if (isUndefined(editor)) {
+  const document = getActiveDocument();
+  if (!document) {
     return;
   }
 
-  const { document } = editor;
-  const content = document.getText();
   const { languageId } = document;
-
   const isSupportedLanguage =
     supportedFormats.filter((format) => format === languageId).length > 0;
   if (!isSupportedLanguage) {
@@ -27,8 +22,10 @@ export async function runCSSExtractor(): Promise<void> {
     return;
   }
 
+  const extractor = createExtractor();
   extractor.setFileType(languageId as SupportFileType);
 
+  const content = document.getText();
   const selectors = [
     ...extractor.extractId(content),
     ...extractor.extractClassName(content),
