@@ -1,8 +1,7 @@
-import { isNull } from 'option-t/lib/Nullable/Nullable';
-import { isUndefined } from 'option-t/lib/Undefinable/Undefinable';
 import { window as vscodeWindow, workspace as vscodeWorkspace } from 'vscode';
+import { getActiveDocument } from './document';
 import { createExtractor } from './extractor';
-import { Formatter } from './formatter';
+import { format } from './formatter';
 import { SupportFileType } from './supportFileType';
 
 const supportedFormats = Object.entries(SupportFileType).map(
@@ -10,19 +9,12 @@ const supportedFormats = Object.entries(SupportFileType).map(
 );
 
 export async function runCSSExtractor(): Promise<void> {
-  const editor = vscodeWindow.activeTextEditor;
-
-  const extractor = createExtractor();
-  const formatter = new Formatter();
-
-  if (isUndefined(editor) || isNull(extractor) || isNull(formatter)) {
+  const document = getActiveDocument();
+  if (!document) {
     return;
   }
 
-  const { document } = editor;
-  const content = document.getText();
   const { languageId } = document;
-
   const isSupportedLanguage =
     supportedFormats.filter((format) => format === languageId).length > 0;
   if (!isSupportedLanguage) {
@@ -30,20 +22,18 @@ export async function runCSSExtractor(): Promise<void> {
     return;
   }
 
+  const extractor = createExtractor();
   extractor.setFileType(languageId as SupportFileType);
 
+  const content = document.getText();
   const selectors = [
     ...extractor.extractId(content),
     ...extractor.extractClassName(content),
   ];
 
-  const source = formatter.convertSelectorsToRulesets(
-    formatter.removeDuplicatesSelector(selectors),
-  );
-
   vscodeWindow.showTextDocument(
     await vscodeWorkspace.openTextDocument({
-      content: formatter.format(source),
+      content: format(selectors),
       language: 'css',
     }),
   );
