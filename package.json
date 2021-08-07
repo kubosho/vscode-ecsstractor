@@ -10,7 +10,7 @@
   },
   "publisher": "kubosho",
   "engines": {
-    "vscode": "^1.58.1",
+    "vscode": "^1.59.0",
     "node": "^16.5.0"
   },
   "categories": [
