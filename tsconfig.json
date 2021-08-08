@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
+    "module": "CommonJS",
+    "target": "ES2020",
     "outDir": "out",
     "lib": [
-      "esnext"
+      "DOM",
+      "ES2020"
     ],
     "sourceMap": true,
     "rootDir": "src",
     "strict": true,
+    "moduleResolution": "Node",
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,
+    "esModuleInterop": true,
     "typeRoots": [
       "./node_modules/@types",
       "./typings"
     ],
-    "types": []
+    "jsx": "react"
   },
   "exclude": [
     "node_modules",
