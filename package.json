@@ -65,7 +65,7 @@
     "vscode-test": "1.6.1"
   },
   "dependencies": {
-    "domhandler": "^4.2.0",
+    "domhandler": "^4.2.2",
     "esprima": "^4.0.1",
     "htmlparser2": "^7.0.0",
     "option-t": "^28.0.0",
