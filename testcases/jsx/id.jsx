@@ -6,14 +6,14 @@ export function IdTestCase() {
       </header>
 
       <main>
-        <article class="content">
-          <h1 class="article-title">Test title</h1>
+        <article className="content">
+          <h1 className="article-title">Test title</h1>
           <p>Test content</p>
         </article>
       </main>
 
       <footer id="global-footer">
-        <small class="copyright">&copy; 2017 kubosho_</small>
+        <small className="copyright">&copy; 2017 kubosho_</small>
       </footer>
     </div>
   );
