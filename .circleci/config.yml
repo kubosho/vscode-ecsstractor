@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /work
     docker:
-      - image: node:16.6.1
+      - image: node:16.8.0
     steps:
       - checkout
       - run:
