@@ -1987,10 +1987,10 @@ domhandler@^4.0.0, domhandler@^4.2.0, domhandler@^4.2.2:
   dependencies:
     domelementtype "^2.2.0"
 
-domutils@^2.5.2, domutils@^2.6.0, domutils@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/domutils/-/domutils-2.7.0.tgz#8ebaf0c41ebafcf55b0b72ec31c56323712c5442"
-  integrity sha512-8eaHa17IwJUPAiB+SoTYBo5mCdeMgdcAoXJ59m6DT1vw+5iLS3gNoqYaRowaBKtGVrOF1Jz4yDTgYKLK2kvfJg==
+domutils@^2.5.2, domutils@^2.6.0, domutils@^2.7.0, domutils@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/domutils/-/domutils-2.8.0.tgz#4437def5db6e2d1f5d6ee859bd95ca7d02048135"
+  integrity sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A==
   dependencies:
     dom-serializer "^1.0.1"
     domelementtype "^2.2.0"
@@ -2976,14 +2976,14 @@ htmlparser2@^6.1.0:
     domutils "^2.5.2"
     entities "^2.0.0"
 
-htmlparser2@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-7.0.0.tgz#ba2d1f7aea9838abd8158bb76c4f3b56d4170b43"
-  integrity sha512-IhdltX9BWhYQft4UPA92jFasNajskja0om6vU0DaIEL4OseCg5zE+mHAMr51AT89TbzzECrQWJ4CZ5NVYTPlKw==
+htmlparser2@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-7.1.1.tgz#ef251d16e5b40818ba162aa24bc051c297eb3f76"
+  integrity sha512-hZb0lfG0hbhR/hB879zbBr8Opv0Be9Zp+JYHgqTw5epF++aotu/zmMTPLy/60iJyR1MaD/3pYRp7xYteXsZMEA==
   dependencies:
     domelementtype "^2.0.1"
     domhandler "^4.0.0"
-    domutils "^2.5.2"
+    domutils "^2.8.0"
     entities "^3.0.1"
 
 http-cache-semantics@^3.8.1:
