@@ -67,7 +67,7 @@
   "dependencies": {
     "domhandler": "^4.2.2",
     "esprima": "^4.0.1",
-    "htmlparser2": "^7.0.0",
+    "htmlparser2": "^7.1.1",
     "option-t": "^28.1.1",
     "prettier": "^2.3.2"
   }
