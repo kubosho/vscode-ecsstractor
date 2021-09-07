@@ -22,8 +22,7 @@ export async function runCSSExtractor(): Promise<void> {
     return;
   }
 
-  const extractor = createExtractor();
-  extractor.setFileType(languageId as SupportFileType);
+  const extractor = createExtractor(languageId as SupportFileType);
 
   const content = document.getText();
   const selectors = [
