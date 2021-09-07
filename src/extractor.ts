@@ -21,25 +21,20 @@ import {
 export interface Extractor {
   extractClassName(contents: string): string[];
   extractId(contents: string): string[];
-  setFileType(fileType: SupportFileType): void;
 }
 
 class ExtractorImpl implements Extractor {
   private _classNames: string[];
   private _ids: string[];
-  private _filetype: SupportFileType | null;
+  private _filetype: SupportFileType;
 
-  constructor() {
+  constructor(fileType: SupportFileType) {
     this._classNames = [];
     this._ids = [];
-    this._filetype = null;
+    this._filetype = fileType;
   }
 
   extractClassName(contents: string): string[] {
-    if (this._filetype === null) {
-      return [];
-    }
-
     if (this._filetype === SupportFileType.Html) {
       const root = parseDocument(contents);
       this._extractClassNameFromHtml(root.children);
@@ -62,10 +57,6 @@ class ExtractorImpl implements Extractor {
   }
 
   extractId(contents: string): string[] {
-    if (this._filetype === null) {
-      return [];
-    }
-
     if (this._filetype === SupportFileType.Html) {
       const root = parseDocument(contents);
       this._extractIdFromHtml(root.children);
@@ -85,10 +76,6 @@ class ExtractorImpl implements Extractor {
     }
 
     return this._ids;
-  }
-
-  setFileType(fileType: SupportFileType): void {
-    this._filetype = fileType;
   }
 
   private _extractClassNameFromHtml(children: Element[] | Node[]): void {
@@ -143,8 +130,8 @@ class ExtractorImpl implements Extractor {
   }
 }
 
-export function createExtractor() {
-  return new ExtractorImpl();
+export function createExtractor(fileType: SupportFileType) {
+  return new ExtractorImpl(fileType);
 }
 
 function getFunctionDeclarations(

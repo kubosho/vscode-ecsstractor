@@ -11,8 +11,7 @@ test('HTML: extract class selectors', async (t) => {
     `${process.cwd()}/testcases/html/list.html`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Html);
+  const extractor = createExtractor(SupportFileType.Html);
 
   const actual = extractor.extractClassName(content);
 
@@ -26,8 +25,7 @@ test('HTML: extract multiple class selectors', async (t) => {
     `${process.cwd()}/testcases/html/multiple-classes.html`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Html);
+  const extractor = createExtractor(SupportFileType.Html);
 
   const actual = extractor.extractClassName(content);
 
@@ -42,8 +40,7 @@ test('HTML: extract id selectors', async (t) => {
     `${process.cwd()}/testcases/html/id.html`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Html);
+  const extractor = createExtractor(SupportFileType.Html);
 
   const actual = extractor.extractId(content);
 
@@ -58,8 +55,7 @@ test('JSX: extract class selectors', async (t) => {
     `${process.cwd()}/testcases/jsx/list.jsx`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Jsx);
+  const extractor = createExtractor(SupportFileType.Jsx);
 
   const actual = extractor.extractClassName(content);
 
@@ -73,8 +69,7 @@ test('JSX: default export case', async (t) => {
     `${process.cwd()}/testcases/jsx/default-export.jsx`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Jsx);
+  const extractor = createExtractor(SupportFileType.Jsx);
 
   const actual = extractor.extractClassName(content);
 
@@ -88,8 +83,7 @@ test('JSX: export variable case', async (t) => {
     `${process.cwd()}/testcases/jsx/export-with-variable.jsx`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Jsx);
+  const extractor = createExtractor(SupportFileType.Jsx);
 
   const actual = extractor.extractClassName(content);
 
@@ -103,8 +97,7 @@ test('JSX: extract multiple class selectors', async (t) => {
     `${process.cwd()}/testcases/jsx/multiple-classes.jsx`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Jsx);
+  const extractor = createExtractor(SupportFileType.Jsx);
 
   const actual = extractor.extractClassName(content);
 
@@ -119,8 +112,7 @@ test('JSX: extract id selectors', async (t) => {
     `${process.cwd()}/testcases/jsx/id.jsx`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Jsx);
+  const extractor = createExtractor(SupportFileType.Jsx);
 
   const actual = extractor.extractId(content);
 
@@ -135,8 +127,7 @@ test('JSX: with hooks', async (t) => {
     `${process.cwd()}/testcases/jsx/with-hooks.jsx`,
     'utf8',
   );
-  const extractor = createExtractor();
-  extractor.setFileType(SupportFileType.Jsx);
+  const extractor = createExtractor(SupportFileType.Jsx);
 
   {
     const actual = [
