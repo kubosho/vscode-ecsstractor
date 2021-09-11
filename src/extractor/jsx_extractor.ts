@@ -1,9 +1,12 @@
 import * as esprima from 'esprima';
 import * as estraverse from 'estraverse';
-import { Node } from 'estree';
+import { Literal, Node, ObjectExpression, Property } from 'estree';
 
-import { JSXElement } from '../../typings/esprima_extend';
-import { isClassName, isId, isJSXElement } from '../utils';
+import {
+  JSXElement,
+  JSXExpressionContainer,
+} from '../../typings/esprima_extend';
+import { isClassName, isId, isLiteral } from '../utils';
 
 import { Extractor } from './extractor';
 
@@ -13,9 +16,15 @@ export class JsxExtractor implements Extractor {
 
     const ast = esprima.parseModule(contents, { jsx: true });
     estraverse.traverse(ast, {
-      enter: (node: Node | JSXElement) => {
-        if (isJSXElement(node)) {
-          result.push(...this._extractClassName(node));
+      enter: (node: Node | JSXElement | JSXExpressionContainer) => {
+        if (node.type === 'JSXElement') {
+          result.push(...this._extractClassNameFromJSXElement(node));
+        }
+
+        if (node.type === 'JSXExpressionContainer') {
+          result.push(
+            ...this._extractClassNameFromJSXExpressionContainer(node),
+          );
         }
       },
       fallback: 'iteration',
@@ -30,7 +39,7 @@ export class JsxExtractor implements Extractor {
 
     estraverse.traverse(ast, {
       enter: (node: Node | JSXElement) => {
-        if (isJSXElement(node)) {
+        if (node.type === 'JSXElement') {
           result.push(...this._extractId(node));
         }
       },
@@ -40,20 +49,57 @@ export class JsxExtractor implements Extractor {
     return result;
   }
 
-  private _extractClassName(element: JSXElement): string[] {
+  private _extractClassNameFromJSXElement(element: JSXElement): string[] {
     const { openingElement } = element;
     const { attributes } = openingElement;
 
-    return attributes
-      .filter(isClassName)
-      .map(({ value }) => `${value.value}`.replace(/ /g, '.'))
-      .map((className) => `.${className}`);
+    return attributes.filter(isClassName).flatMap(({ value }) => {
+      if (!isLiteral(value) || typeof value.value !== 'string') {
+        return [];
+      }
+
+      return `.${value.value.replace(/ /g, '.')}`;
+    });
+  }
+
+  private _extractClassNameFromJSXExpressionContainer({
+    expression,
+  }: JSXExpressionContainer): string[] {
+    if (
+      !expression.callee ||
+      expression.callee.type !== 'Identifier' ||
+      expression.callee.name !== 'classNames'
+    ) {
+      return [];
+    }
+
+    const result1 = expression.arguments
+      .filter((value): value is Literal => value.type === 'Literal')
+      .map(({ value }) => `.${value}`);
+
+    const result2 = expression.arguments
+      .filter(
+        (value): value is ObjectExpression => value.type === 'ObjectExpression',
+      )
+      .flatMap(({ properties }) => properties)
+      .filter((property): property is Property => property.type === 'Property')
+      .flatMap((property) =>
+        property.key.type === 'Literal' ? `.${property.key.value}` : [],
+      );
+
+    return [...result1, ...result2];
   }
 
   private _extractId(element: JSXElement): string[] {
     const { openingElement } = element;
     const { attributes } = openingElement;
 
-    return attributes.filter(isId).map((attr) => `#${attr.value.value}`);
+    return attributes.filter(isId).flatMap((attr) => {
+      if (!isLiteral(attr.value)) {
+        return [];
+      }
+
+      return `#${attr.value.value}`;
+    });
   }
 }
