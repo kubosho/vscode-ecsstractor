@@ -1,115 +1,105 @@
 import * as esprima from 'esprima';
-import {
-  ExportNamedDeclaration,
-  Expression,
-  FunctionDeclaration,
-} from 'estree';
-import { isNotNullAndUndefined } from 'option-t/lib/Maybe/Maybe';
+import * as estraverse from 'estraverse';
+import { Literal, Node, ObjectExpression, Property } from 'estree';
 
-import { JSXElement, JSXText } from '../../typings/esprima_extend';
 import {
-  isClassName,
-  isExportNamedDeclaration,
-  isFunctionDeclaration,
-  isId,
-  isJSXElement,
-  isReturnStatement,
-} from '../utils';
+  JSXElement,
+  JSXExpressionContainer,
+} from '../../typings/esprima_extend';
+import { isClassName, isId, isLiteral } from '../utils';
 
 import { Extractor } from './extractor';
 
 export class JsxExtractor implements Extractor {
-  private _classNames: string[];
-  private _ids: string[];
-
-  constructor() {
-    this._classNames = [];
-    this._ids = [];
-  }
-
   extractClassName(contents: string): string[] {
-    const { body } = esprima.parseModule(contents, { jsx: true });
+    const result: string[] = [];
 
-    const source = getJSXElements([
-      ...getFunctionDeclarations(body.filter(isExportNamedDeclaration)),
-      ...body.filter(isFunctionDeclaration),
-    ]);
+    const ast = esprima.parseModule(contents, { jsx: true });
+    estraverse.traverse(ast, {
+      enter: (node: Node | JSXElement | JSXExpressionContainer) => {
+        if (node.type === 'JSXElement') {
+          result.push(...this._extractClassNameFromJSXElement(node));
+        }
 
-    source.forEach((src) => {
-      if (isJSXElement(src)) {
-        this._extractClassName([src]);
-      }
+        if (node.type === 'JSXExpressionContainer') {
+          result.push(
+            ...this._extractClassNameFromJSXExpressionContainer(node),
+          );
+        }
+      },
+      fallback: 'iteration',
     });
 
-    return this._classNames;
+    return result;
   }
 
   extractId(contents: string): string[] {
-    const { body } = esprima.parseModule(contents, { jsx: true });
+    const result: string[] = [];
+    const ast = esprima.parseModule(contents, { jsx: true });
 
-    const source = getJSXElements([
-      ...getFunctionDeclarations(body.filter(isExportNamedDeclaration)),
-      ...body.filter(isFunctionDeclaration),
-    ]);
+    estraverse.traverse(ast, {
+      enter: (node: Node | JSXElement) => {
+        if (node.type === 'JSXElement') {
+          result.push(...this._extractId(node));
+        }
+      },
+      fallback: 'iteration',
+    });
 
-    source.forEach((src) => {
-      if (isJSXElement(src)) {
-        this._extractId([src]);
+    return result;
+  }
+
+  private _extractClassNameFromJSXElement(element: JSXElement): string[] {
+    const { openingElement } = element;
+    const { attributes } = openingElement;
+
+    return attributes.filter(isClassName).flatMap(({ value }) => {
+      if (!isLiteral(value) || typeof value.value !== 'string') {
+        return [];
       }
+
+      return `.${value.value.replace(/ /g, '.')}`;
     });
-
-    return this._ids;
   }
 
-  private _extractClassName(elements: (JSXElement | JSXText)[]): void {
-    getPartialPropertyOfElements(elements).forEach(
-      ({ children, openingElement: { attributes } }) => {
-        attributes
-          .filter(isClassName)
-          .map(({ value }) => `${value.value}`.replace(/ /g, '.'))
-          .forEach((className) => this._classNames.push(`.${className}`));
+  private _extractClassNameFromJSXExpressionContainer({
+    expression,
+  }: JSXExpressionContainer): string[] {
+    if (
+      !expression.callee ||
+      expression.callee.type !== 'Identifier' ||
+      expression.callee.name !== 'classNames'
+    ) {
+      return [];
+    }
 
-        this._extractClassName(children);
-      },
-    );
+    const result1 = expression.arguments
+      .filter((value): value is Literal => value.type === 'Literal')
+      .map(({ value }) => `.${value}`);
+
+    const result2 = expression.arguments
+      .filter(
+        (value): value is ObjectExpression => value.type === 'ObjectExpression',
+      )
+      .flatMap(({ properties }) => properties)
+      .filter((property): property is Property => property.type === 'Property')
+      .flatMap((property) =>
+        property.key.type === 'Literal' ? `.${property.key.value}` : [],
+      );
+
+    return [...result1, ...result2];
   }
 
-  private _extractId(elements: (JSXElement | JSXText)[]): void {
-    getPartialPropertyOfElements(elements).forEach(
-      ({ children, openingElement: { attributes } }) => {
-        attributes
-          .filter(isId)
-          .forEach((attr) => this._ids.push(`#${attr.value.value}`));
+  private _extractId(element: JSXElement): string[] {
+    const { openingElement } = element;
+    const { attributes } = openingElement;
 
-        this._extractId(children);
-      },
-    );
-  }
-}
+    return attributes.filter(isId).flatMap((attr) => {
+      if (!isLiteral(attr.value)) {
+        return [];
+      }
 
-function getFunctionDeclarations(
-  sources: ExportNamedDeclaration[],
-): FunctionDeclaration[] {
-  return sources
-    .map(({ declaration }) => declaration)
-    .filter(isFunctionDeclaration);
-}
-
-function getJSXElements(source: FunctionDeclaration[]): Expression[] {
-  return source
-    .map(({ body: blockStatement }) => blockStatement)
-    .flatMap(({ body }) => body)
-    .filter(isReturnStatement)
-    .map((returnStatement) => returnStatement.argument)
-    .filter(isNotNullAndUndefined);
-}
-
-function getPartialPropertyOfElements(
-  elements: (JSXElement | JSXText)[],
-): Pick<JSXElement, 'children' | 'openingElement'>[] {
-  return elements
-    .filter((element): element is JSXElement => isJSXElement(element))
-    .map(({ children, openingElement }) => {
-      return { children, openingElement };
+      return `#${attr.value.value}`;
     });
+  }
 }

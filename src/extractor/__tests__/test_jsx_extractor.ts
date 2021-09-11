@@ -95,3 +95,22 @@ test('JSX: with hooks', async (t) => {
     t.is(actual[1], '.container');
   }
 });
+
+test('JSX: with classnames library', async (t) => {
+  const content = await readFile(
+    `${process.cwd()}/testcases/jsx/with-classnames.jsx`,
+    'utf8',
+  );
+  const extractor = new JsxExtractor();
+
+  {
+    const actual = [
+      ...extractor.extractId(content),
+      ...extractor.extractClassName(content),
+    ];
+    t.is(actual.length, 3);
+    t.is(actual[0], '#container');
+    t.is(actual[1], '.container');
+    t.is(actual[2], '.container--modifier');
+  }
+});
