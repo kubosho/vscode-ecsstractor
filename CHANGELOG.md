@@ -1,3 +1,11 @@
+# [2.3.0](https://github.com/kubosho/vscode-ecsstractor/compare/v2.2.2...v2.3.0) (2021-09-11)
+
+
+### Features
+
+* **esprima_extend:** add JSXExpressionContainer type ([a14d4bf](https://github.com/kubosho/vscode-ecsstractor/commit/a14d4bf3e8be3156f14a9314b349e7837ce9fb9c))
+* **src:** implement to extract class selector in JSX code using classNames ([10c9085](https://github.com/kubosho/vscode-ecsstractor/commit/10c90856dcec2126bfcfab7b7a3a388c77182f54))
+
 ## [2.2.2](https://github.com/kubosho/vscode-ecsstractor/compare/v2.2.1...v2.2.2) (2021-08-30)
 
 
