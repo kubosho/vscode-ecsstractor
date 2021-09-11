@@ -1,4 +1,4 @@
-import { SimpleLiteral } from 'estree';
+import { CallExpression, Literal } from 'estree';
 
 type JSXIdentifier = { name: string; type: 'JSXIdentifier' };
 
@@ -14,10 +14,15 @@ type JSXClosingElement = {
   name: JSXIdentifier;
 };
 
+type JSXExpressionContainer = {
+  type: 'JSXExpressionContainer';
+  expression: CallExpression;
+};
+
 export type JSXAttribute = {
   type: 'JSXAttribute';
   name: JSXIdentifier;
-  value: SimpleLiteral;
+  value: Literal | JSXExpressionContainer;
 };
 
 export type JSXElement = {
