@@ -50,7 +50,7 @@
     "@types/estree": "0.0.50",
     "@types/glob": "7.1.4",
     "@types/mocha": "9.0.0",
-    "@types/node": "16.7.10",
+    "@types/node": "16.9.1",
     "@types/prettier": "2.3.2",
     "@types/vscode": "1.60.0",
     "@typescript-eslint/eslint-plugin": "4.30.0",
