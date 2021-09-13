@@ -1,3 +1,11 @@
+# [2.4.0](https://github.com/kubosho/vscode-ecsstractor/compare/v2.3.0...v2.4.0) (2021-09-13)
+
+
+### Features
+
+* **ast_types:** add ESTree types ([a46bc08](https://github.com/kubosho/vscode-ecsstractor/commit/a46bc085b2c10b38b24ff061546bf4f134c471d3))
+* **supportFileType:** implement TSX support ([c9e4765](https://github.com/kubosho/vscode-ecsstractor/commit/c9e4765a083d2e16368dab5e4a33eebe32298177))
+
 # [2.3.0](https://github.com/kubosho/vscode-ecsstractor/compare/v2.2.2...v2.3.0) (2021-09-11)
 
 
