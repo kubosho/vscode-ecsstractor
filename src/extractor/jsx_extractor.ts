@@ -1,12 +1,13 @@
-import * as esprima from 'esprima';
-import * as estraverse from 'estraverse';
-import { Literal, Node, ObjectExpression, Property } from 'estree';
+import { parse, simpleTraverse } from '@typescript-eslint/typescript-estree';
 
 import {
+  JSXAttribute,
   JSXElement,
   JSXExpressionContainer,
-} from '../../typings/esprima_extend';
-import { isClassName, isId, isLiteral } from '../utils';
+  Literal,
+  ObjectExpression,
+  Property,
+} from '../ast_types';
 
 import { Extractor } from './extractor';
 
@@ -14,9 +15,9 @@ export class JsxExtractor implements Extractor {
   extractClassName(contents: string): string[] {
     const result: string[] = [];
 
-    const ast = esprima.parseModule(contents, { jsx: true });
-    estraverse.traverse(ast, {
-      enter: (node: Node | JSXElement | JSXExpressionContainer) => {
+    const ast = parse(contents, { jsx: true });
+    simpleTraverse(ast, {
+      enter: (node) => {
         if (node.type === 'JSXElement') {
           result.push(...this._extractClassNameFromJSXElement(node));
         }
@@ -27,7 +28,6 @@ export class JsxExtractor implements Extractor {
           );
         }
       },
-      fallback: 'iteration',
     });
 
     return result;
@@ -35,15 +35,14 @@ export class JsxExtractor implements Extractor {
 
   extractId(contents: string): string[] {
     const result: string[] = [];
-    const ast = esprima.parseModule(contents, { jsx: true });
+    const ast = parse(contents, { jsx: true });
 
-    estraverse.traverse(ast, {
-      enter: (node: Node | JSXElement) => {
+    simpleTraverse(ast, {
+      enter: (node) => {
         if (node.type === 'JSXElement') {
           result.push(...this._extractId(node));
         }
       },
-      fallback: 'iteration',
     });
 
     return result;
@@ -53,19 +52,25 @@ export class JsxExtractor implements Extractor {
     const { openingElement } = element;
     const { attributes } = openingElement;
 
-    return attributes.filter(isClassName).flatMap(({ value }) => {
-      if (!isLiteral(value) || typeof value.value !== 'string') {
-        return [];
-      }
+    return attributes
+      .filter(
+        (attr): attr is JSXAttribute =>
+          attr.type === 'JSXAttribute' && attr.name.name === 'className',
+      )
+      .flatMap(({ value }) => {
+        if (value?.type !== 'Literal' || typeof value.value !== 'string') {
+          return [];
+        }
 
-      return `.${value.value.replace(/ /g, '.')}`;
-    });
+        return `.${value.value.replace(/ /g, '.')}`;
+      });
   }
 
   private _extractClassNameFromJSXExpressionContainer({
     expression,
   }: JSXExpressionContainer): string[] {
     if (
+      expression.type !== 'CallExpression' ||
       !expression.callee ||
       expression.callee.type !== 'Identifier' ||
       expression.callee.name !== 'classNames'
@@ -94,12 +99,17 @@ export class JsxExtractor implements Extractor {
     const { openingElement } = element;
     const { attributes } = openingElement;
 
-    return attributes.filter(isId).flatMap((attr) => {
-      if (!isLiteral(attr.value)) {
-        return [];
-      }
+    return attributes
+      .filter(
+        (attr): attr is JSXAttribute =>
+          attr.type === 'JSXAttribute' && attr.name.name === 'id',
+      )
+      .flatMap(({ value }) => {
+        if (value?.type !== 'Literal') {
+          return [];
+        }
 
-      return `#${attr.value.value}`;
-    });
+        return `#${value.value}`;
+      });
   }
 }
