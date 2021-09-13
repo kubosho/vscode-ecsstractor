@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/kubosho/vscode-ecsstractor/compare/v2.4.1...v2.4.2) (2021-09-13)
+
+
+### Bug Fixes
+
+* **package:** fixed error when running ecsstractor ([ba3969e](https://github.com/kubosho/vscode-ecsstractor/commit/ba3969e9ad09651a2b215a849168fc02f7ac4557))
+
 ## [2.4.1](https://github.com/kubosho/vscode-ecsstractor/compare/v2.4.0...v2.4.1) (2021-09-13)
 
 
