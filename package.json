@@ -60,7 +60,6 @@
     "mocha": "9.1.1",
     "semantic-release": "17.4.7",
     "semantic-release-vsce": "3.4.1",
-    "typescript": "4.4.3",
     "vscode-test": "1.6.1"
   },
   "dependencies": {
@@ -69,6 +68,7 @@
     "domhandler": "^4.2.2",
     "htmlparser2": "^7.1.2",
     "option-t": "^28.1.1",
-    "prettier": "^2.4.0"
+    "prettier": "^2.4.0",
+    "typescript": "^4.4.3"
   }
 }
