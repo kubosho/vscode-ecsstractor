@@ -17,7 +17,6 @@
     "esModuleInterop": true,
     "typeRoots": [
       "./node_modules/@types",
-      "./typings"
     ],
     "jsx": "react"
   },
