@@ -2,7 +2,7 @@
   "name": "ecsstractor",
   "displayName": "eCSStractor",
   "description": "Extracting selectors from HTML and generate CSS stylesheet",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "license": "MIT",
   "repository": {
     "type": "git",
