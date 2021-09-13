@@ -72,6 +72,6 @@
     "estraverse": "^5.2.0",
     "htmlparser2": "^7.1.1",
     "option-t": "^28.1.1",
-    "prettier": "^2.3.2"
+    "prettier": "^2.4.0"
   }
 }
