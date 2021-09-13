@@ -1,4 +1,7 @@
 .vscode-test/
 node_modules/
 out/
+
+testcases/tsx/*.js
+testcases/tsx/*.map
 *.vsix
