@@ -4,7 +4,7 @@
 
 ![eCSStractor demo](src/assets/demo.gif?raw=true)
 
-Extracting selectors from HTML and generate CSS file.
+Extracting selectors from HTML / JSX / TSX and generate CSS file.
 
 [hudochenkov/ecsstractor](https://github.com/hudochenkov/ecsstractor) of VS Code version.
 
