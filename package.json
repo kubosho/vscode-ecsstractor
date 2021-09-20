@@ -68,7 +68,7 @@
     "domhandler": "^4.2.2",
     "htmlparser2": "^7.1.2",
     "option-t": "^28.1.1",
-    "prettier": "^2.4.0",
+    "prettier": "^2.4.1",
     "typescript": "^4.4.3"
   }
 }
