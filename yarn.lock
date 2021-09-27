@@ -4302,10 +4302,10 @@ opener@*:
   resolved "https://registry.yarnpkg.com/opener/-/opener-1.5.2.tgz#5d37e1f35077b9dcac4301372271afdeb2a13598"
   integrity sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==
 
-option-t@^28.1.1:
-  version "28.1.1"
-  resolved "https://registry.yarnpkg.com/option-t/-/option-t-28.1.1.tgz#8f248f21e4f37525052d5121a09def1166b3e246"
-  integrity sha512-Tr0mesYhgZPz6f7gEN9KAxWf5bRefsWcgXvJ8NHwl/Od0JnUGW3avadEXRtmaQdFb0Fq9KDX6br3NRqW69CCXg==
+option-t@^28.1.3:
+  version "28.1.3"
+  resolved "https://registry.yarnpkg.com/option-t/-/option-t-28.1.3.tgz#7cbc398e7338111b9f41df965785784564894e2c"
+  integrity sha512-KztdaQQ2V17z9C8SkbMs7spLYOkLao1uNlditlmQFY7chSjwJSPcjzhSI5JcpjTKplkW8aR+RGTFqOkJLERnWw==
 
 optionator@^0.9.1:
   version "0.9.1"
