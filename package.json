@@ -47,7 +47,7 @@
     "@semantic-release/release-notes-generator": "10.0.2",
     "@types/glob": "7.1.4",
     "@types/mocha": "9.0.0",
-    "@types/node": "16.10.1",
+    "@types/node": "16.10.2",
     "@types/prettier": "2.4.0",
     "@types/react": "^17.0.24",
     "@types/vscode": "1.60.0",
