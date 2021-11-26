@@ -67,7 +67,7 @@
     "@typescript-eslint/typescript-estree": "^4.31.0",
     "domhandler": "^4.2.2",
     "htmlparser2": "^7.1.2",
-    "option-t": "^28.2.2",
+    "option-t": "^29.1.0",
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   }
