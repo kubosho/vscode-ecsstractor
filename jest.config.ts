@@ -8,4 +8,5 @@ export default {
   clearMocks: true,
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
+  testPathIgnorePatterns: ['/node_modules/', '/out/', '/src/vscode/'],
 };
