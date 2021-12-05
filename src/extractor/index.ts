@@ -1,4 +1,4 @@
-import { SupportFileType } from '../supportFileType';
+import { SupportFileType } from './supportFileType';
 import { Extractor } from './extractor';
 import { HtmlExtractor } from './html_extractor';
 import { JsxExtractor } from './jsx_extractor';
@@ -7,13 +7,12 @@ class ExtractorImpl implements Extractor {
   private _htmlExtractor: HtmlExtractor;
   private _jsxExtractor: JsxExtractor;
 
-  private _filetype: SupportFileType;
+  private _filetype: SupportFileType | null;
 
-  constructor(fileType: SupportFileType) {
+  constructor() {
     this._htmlExtractor = new HtmlExtractor();
     this._jsxExtractor = new JsxExtractor();
-
-    this._filetype = fileType;
+    this._filetype = null;
   }
 
   extractClassName(contents: string): string[] {
@@ -31,8 +30,12 @@ class ExtractorImpl implements Extractor {
 
     return this._jsxExtractor.extractId(contents);
   }
+
+  setFileType(fileType: SupportFileType): void {
+    this._filetype = fileType;
+  }
 }
 
-export function createExtractor(fileType: SupportFileType) {
-  return new ExtractorImpl(fileType);
+export function createExtractor() {
+  return new ExtractorImpl();
 }

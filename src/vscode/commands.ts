@@ -1,8 +1,8 @@
 import { window as vscodeWindow, workspace as vscodeWorkspace } from 'vscode';
 import { getActiveDocument } from './document';
-import { createExtractor } from './extractor';
-import { format } from './formatter';
-import { SupportFileType } from './supportFileType';
+import { createExtractor } from '../extractor';
+import { format } from '../formatter';
+import { SupportFileType } from '../extractor/supportFileType';
 
 const supportedFormats = Object.entries(SupportFileType).map(
   ([_id, value]) => value,
@@ -22,7 +22,9 @@ export async function runCSSExtractor(): Promise<void> {
     return;
   }
 
-  const extractor = createExtractor(languageId as SupportFileType);
+  const extractor = createExtractor();
+
+  extractor.setFileType(languageId as SupportFileType);
 
   const content = document.getText();
   const selectors = [
