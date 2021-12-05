@@ -1,8 +1,8 @@
 import { window as vscodeWindow, workspace as vscodeWorkspace } from 'vscode';
 import { getActiveDocument } from './document';
-import { createExtractor } from './extractor';
-import { format } from './formatter';
-import { SupportFileType } from './extractor/supportFileType';
+import { createExtractor } from '../extractor';
+import { format } from '../formatter';
+import { SupportFileType } from '../extractor/supportFileType';
 
 const supportedFormats = Object.entries(SupportFileType).map(
   ([_id, value]) => value,

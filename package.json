@@ -19,7 +19,7 @@
   "activationEvents": [
     "onCommand:extension.ecsstractor.run"
   ],
-  "main": "./out/extension.js",
+  "main": "./out/vscode/extension.js",
   "contributes": {
     "commands": [
       {
