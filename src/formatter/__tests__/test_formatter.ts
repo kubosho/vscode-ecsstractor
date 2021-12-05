@@ -1,7 +1,6 @@
-import test from 'ava';
 import { format } from '../formatter';
 
-test('format selectors', (t) => {
+test('format selectors', () => {
   const selectors = ['.article.content', '.article.title', '.article.title'];
   const actual = format(selectors);
   const expected = `.article.content {
@@ -10,5 +9,5 @@ test('format selectors', (t) => {
 }
 `;
 
-  t.is(actual, expected);
+  expect(actual).toBe(expected);
 });

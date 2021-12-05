@@ -1,4 +1,3 @@
-import test from 'ava';
 import { readFile as lagacyReadFile } from 'fs';
 import { promisify } from 'util';
 
@@ -6,7 +5,7 @@ import { JsxExtractor } from '../jsx_extractor';
 
 const readFile = promisify(lagacyReadFile);
 
-test('JSX: extract class selectors', async (t) => {
+test('JSX: extract class selectors', async () => {
   const content = await readFile(
     `${process.cwd()}/testcases/jsx/list.jsx`,
     'utf8',
@@ -15,12 +14,12 @@ test('JSX: extract class selectors', async (t) => {
 
   const actual = extractor.extractClassName(content);
 
-  t.is(actual.length, 6);
-  t.is(actual[0], '.list');
-  t.is(actual[1], '.list-item');
+  expect(actual.length).toBe(6);
+  expect(actual[0]).toBe('.list');
+  expect(actual[1]).toBe('.list-item');
 });
 
-test('JSX: default export case', async (t) => {
+test('JSX: default export case', async () => {
   const content = await readFile(
     `${process.cwd()}/testcases/jsx/default-export.jsx`,
     'utf8',
@@ -29,12 +28,12 @@ test('JSX: default export case', async (t) => {
 
   const actual = extractor.extractClassName(content);
 
-  t.is(actual.length, 6);
-  t.is(actual[0], '.list');
-  t.is(actual[1], '.list-item');
+  expect(actual.length).toBe(6);
+  expect(actual[0]).toBe('.list');
+  expect(actual[1]).toBe('.list-item');
 });
 
-test('JSX: export variable case', async (t) => {
+test('JSX: export variable case', async () => {
   const content = await readFile(
     `${process.cwd()}/testcases/jsx/export-with-variable.jsx`,
     'utf8',
@@ -43,12 +42,12 @@ test('JSX: export variable case', async (t) => {
 
   const actual = extractor.extractClassName(content);
 
-  t.is(actual.length, 6);
-  t.is(actual[0], '.list');
-  t.is(actual[1], '.list-item');
+  expect(actual.length).toBe(6);
+  expect(actual[0]).toBe('.list');
+  expect(actual[1]).toBe('.list-item');
 });
 
-test('JSX: extract multiple class selectors', async (t) => {
+test('JSX: extract multiple class selectors', async () => {
   const content = await readFile(
     `${process.cwd()}/testcases/jsx/multiple-classes.jsx`,
     'utf8',
@@ -57,13 +56,13 @@ test('JSX: extract multiple class selectors', async (t) => {
 
   const actual = extractor.extractClassName(content);
 
-  t.is(actual.length, 3);
-  t.is(actual[0], '.container.container-fluid.article');
-  t.is(actual[1], '.article.content');
-  t.is(actual[2], '.article.title');
+  expect(actual.length).toBe(3);
+  expect(actual[0]).toBe('.container.container-fluid.article');
+  expect(actual[1]).toBe('.article.content');
+  expect(actual[2]).toBe('.article.title');
 });
 
-test('JSX: extract id selectors', async (t) => {
+test('JSX: extract id selectors', async () => {
   const content = await readFile(
     `${process.cwd()}/testcases/jsx/id.jsx`,
     'utf8',
@@ -72,13 +71,13 @@ test('JSX: extract id selectors', async (t) => {
 
   const actual = extractor.extractId(content);
 
-  t.is(actual.length, 3);
-  t.is(actual[0], '#global-header');
-  t.is(actual[1], '#site-title');
-  t.is(actual[2], '#global-footer');
+  expect(actual.length).toBe(3);
+  expect(actual[0]).toBe('#global-header');
+  expect(actual[1]).toBe('#site-title');
+  expect(actual[2]).toBe('#global-footer');
 });
 
-test('JSX: with hooks', async (t) => {
+test('JSX: with hooks', async () => {
   const content = await readFile(
     `${process.cwd()}/testcases/jsx/with-hooks.jsx`,
     'utf8',
@@ -90,13 +89,13 @@ test('JSX: with hooks', async (t) => {
       ...extractor.extractId(content),
       ...extractor.extractClassName(content),
     ];
-    t.is(actual.length, 2);
-    t.is(actual[0], '#container');
-    t.is(actual[1], '.container');
+    expect(actual.length).toBe(2);
+    expect(actual[0]).toBe('#container');
+    expect(actual[1]).toBe('.container');
   }
 });
 
-test('JSX: with classnames library', async (t) => {
+test('JSX: with classnames library', async () => {
   const content = await readFile(
     `${process.cwd()}/testcases/jsx/with-classnames.jsx`,
     'utf8',
@@ -108,9 +107,9 @@ test('JSX: with classnames library', async (t) => {
       ...extractor.extractId(content),
       ...extractor.extractClassName(content),
     ];
-    t.is(actual.length, 3);
-    t.is(actual[0], '#container');
-    t.is(actual[1], '.container');
-    t.is(actual[2], '.container--modifier');
+    expect(actual.length).toBe(3);
+    expect(actual[0]).toBe('#container');
+    expect(actual[1]).toBe('.container');
+    expect(actual[2]).toBe('.container--modifier');
   }
 });
