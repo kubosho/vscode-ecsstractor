@@ -7,7 +7,7 @@ import {
   Literal,
   ObjectExpression,
   Property,
-} from '../ast_types';
+} from '../types/ast_types';
 
 import { Extractor } from './extractor';
 
