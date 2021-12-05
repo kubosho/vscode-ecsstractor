@@ -10,7 +10,7 @@
   },
   "publisher": "kubosho",
   "engines": {
-    "vscode": "^1.61.0",
+    "vscode": "^1.62.0",
     "node": "^16.5.0"
   },
   "categories": [
@@ -53,7 +53,7 @@
     "@types/node": "16.11.9",
     "@types/prettier": "2.4.2",
     "@types/react": "^17.0.36",
-    "@types/vscode": "1.62.0",
+    "@types/vscode": "^1.62.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "4.33.0",
     "babel-jest": "^27.4.2",
