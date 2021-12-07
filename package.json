@@ -31,10 +31,10 @@
   "scripts": {
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
+    "build": "vsce package",
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./",
     "test": "jest",
-    "test_with_vscode": "node ./out/__tests__/runTest.js",
     "format": "prettier --write ./src/**/*.{js,ts}",
     "release": "semantic-release"
   },
@@ -60,7 +60,8 @@
     "jest": "^27.4.3",
     "semantic-release": "18.0.0",
     "semantic-release-vsce": "3.5.0",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.4.0",
+    "vsce": "^2.5.1"
   },
   "dependencies": {
     "@typescript-eslint/experimental-utils": "^4.31.1",
