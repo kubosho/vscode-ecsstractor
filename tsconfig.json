@@ -21,6 +21,7 @@
     "jsx": "react"
   },
   "exclude": [
+    "jest.config.ts",
     "node_modules",
     ".vscode-test",
     "./testcases/*"
