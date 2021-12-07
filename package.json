@@ -34,7 +34,6 @@
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./",
     "test": "jest",
-    "test_with_vscode": "node ./out/__tests__/runTest.js",
     "format": "prettier --write ./src/**/*.{js,ts}",
     "release": "semantic-release"
   },
