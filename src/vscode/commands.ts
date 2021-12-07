@@ -1,41 +1,33 @@
-import { window as vscodeWindow, workspace as vscodeWorkspace } from 'vscode';
-import { getActiveDocument } from './document';
 import { createExtractor } from '../extractor';
 import { format } from '../formatter';
-import { SupportFileType } from '../extractor/supportFileType';
-
-const supportedFormats = Object.entries(SupportFileType).map(
-  ([_id, value]) => value,
-);
+import { VSCodeDocument } from './vscode_document';
+import { EditorContents } from './editor_contents';
 
 export async function runCSSExtractor(): Promise<void> {
-  const document = getActiveDocument();
-  if (!document) {
+  const vscodeDocument = new VSCodeDocument();
+
+  const activeDocument = vscodeDocument.getActiveDocument();
+  const languageId = vscodeDocument.getLanguageId();
+  if (!(activeDocument && languageId)) {
     return;
   }
 
-  const { languageId } = document;
-  const isSupportedLanguage =
-    supportedFormats.filter((format) => format === languageId).length > 0;
-  if (!isSupportedLanguage) {
-    vscodeWindow.showErrorMessage('eCSStractor: not supported format.');
-    return;
-  }
+  const editorContents = new EditorContents({
+    document: activeDocument,
+  });
+
+  editorContents.import();
 
   const extractor = createExtractor();
+  extractor.setFileType(languageId);
 
-  extractor.setFileType(languageId as SupportFileType);
+  const contents = format([
+    ...extractor.extractId(editorContents.contents),
+    ...extractor.extractClassName(editorContents.contents),
+  ]);
 
-  const content = document.getText();
-  const selectors = [
-    ...extractor.extractId(content),
-    ...extractor.extractClassName(content),
-  ];
-
-  vscodeWindow.showTextDocument(
-    await vscodeWorkspace.openTextDocument({
-      content: format(selectors),
-      language: 'css',
-    }),
-  );
+  editorContents.export({
+    contents,
+    language: 'css',
+  });
 }
