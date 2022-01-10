@@ -6039,10 +6039,10 @@ opener@^1.5.2:
   resolved "https://registry.yarnpkg.com/opener/-/opener-1.5.2.tgz#5d37e1f35077b9dcac4301372271afdeb2a13598"
   integrity sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==
 
-option-t@^29.1.0:
-  version "29.1.0"
-  resolved "https://registry.yarnpkg.com/option-t/-/option-t-29.1.0.tgz#74fb74e8c4f7b679a513026920bd7f06cb9b0dcf"
-  integrity sha512-McvO8qSy7aRhnMs9tkC1RLXNbForhkoWmaOohotfH8ZhKD0qB7NPpCKkfMoOAxBdokmPSO+SgQ0M/+6TsmiWTA==
+option-t@^30.0.0:
+  version "30.0.0"
+  resolved "https://registry.yarnpkg.com/option-t/-/option-t-30.0.0.tgz#962f62d59b29731445671d8afea7c0626e7857d0"
+  integrity sha512-y2c7dc0m+8fwnEoeUbOI6SMm5AA9OEG6Aa63lIH8wh5ifjXtx2jYI+kHVQvajqCZXWcg+T7zDE3y8fEjFfG1SQ==
 
 optionator@^0.8.1:
   version "0.8.3"
