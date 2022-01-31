@@ -59,7 +59,7 @@
     "eslint": "7.32.0",
     "jest": "^27.4.7",
     "semantic-release": "18.0.1",
-    "semantic-release-vsce": "3.5.0",
+    "semantic-release-vsce": "5.0.2",
     "ts-node": "^10.4.0",
     "vsce": "^2.6.3"
   },
