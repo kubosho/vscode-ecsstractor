@@ -61,7 +61,7 @@
     "semantic-release": "18.0.1",
     "semantic-release-vsce": "5.0.6",
     "ts-node": "^10.4.0",
-    "vsce": "^2.6.3"
+    "vsce": "^2.6.7"
   },
   "dependencies": {
     "@typescript-eslint/experimental-utils": "^5.10.2",
