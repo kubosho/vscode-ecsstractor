@@ -54,7 +54,7 @@
     "@types/vscode": "^1.63.1",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "4.33.0",
-    "babel-jest": "^27.4.6",
+    "babel-jest": "^28.0.3",
     "classnames": "^2.3.1",
     "eslint": "7.32.0",
     "jest": "^27.4.7",
