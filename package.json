@@ -58,7 +58,7 @@
     "classnames": "^2.3.1",
     "eslint": "7.32.0",
     "jest": "^27.4.7",
-    "semantic-release": "18.0.1",
+    "semantic-release": "19.0.3",
     "semantic-release-vsce": "5.0.6",
     "ts-node": "^10.4.0",
     "vsce": "^2.6.7"
