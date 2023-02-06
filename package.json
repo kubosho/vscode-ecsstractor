@@ -70,6 +70,6 @@
     "htmlparser2": "^7.2.0",
     "option-t": "^32.2.1",
     "prettier": "^2.6.2",
-    "typescript": "^4.5.5"
+    "typescript": "^4.9.5"
   }
 }
