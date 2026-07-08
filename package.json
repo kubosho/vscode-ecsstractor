@@ -11,7 +11,7 @@
   "publisher": "kubosho",
   "engines": {
     "vscode": "^1.63.1",
-    "node": "^16.5.0"
+    "node": "^24.0.0"
   },
   "categories": [
     "Other"
@@ -48,7 +48,7 @@
     "@semantic-release/github": "8.0.2",
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "^27.4.0",
-    "@types/node": "17.0.44",
+    "@types/node": "24.13.3",
     "@types/prettier": "2.6.1",
     "@types/react": "^17.0.39",
     "@types/vscode": "^1.68.0",
