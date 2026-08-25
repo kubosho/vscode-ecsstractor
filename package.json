@@ -56,7 +56,7 @@
     "@typescript-eslint/parser": "4.33.0",
     "babel-jest": "^28.1.1",
     "classnames": "^2.3.1",
-    "eslint": "7.32.0",
+    "eslint": "10.9.1",
     "jest": "^27.4.7",
     "semantic-release": "19.0.3",
     "semantic-release-vsce": "5.0.17",
